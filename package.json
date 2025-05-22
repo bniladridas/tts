@@ -1,0 +1,24 @@
+{
+  "name": "tts",
+  "version": "1.0.0",
+  "description": "Google Gemini TTS API test script",
+  "main": "test_api.ts",
+  "type": "module",
+  "scripts": {
+    "start": "npx ts-node test_api.ts",
+    "tts": "tsx gemini-tts-cli.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^0.6.1",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mime": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4"
+  }
+}
