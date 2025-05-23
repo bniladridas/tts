@@ -2,6 +2,8 @@
 
 Interactive CLI for synthesizing speech using the Gemini API.
 
+> This CLI uses the gemini-2.5-flash-preview-tts model from Google Gemini for all speech synthesis.
+
 ## Setup
 
 ```sh
