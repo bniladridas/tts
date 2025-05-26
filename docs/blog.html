@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREVOX DIGITAL CAST - Technical Blog</title>
+    <link rel="icon" type="image/svg+xml" href="assets/brevox-icon.svg">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BREVOX DIGITAL CAST - Technical Blog">
+    <meta property="og:description" content="Deep-dive insights for engineers and educators. Professional technical content covering git standards, development practices, and software engineering.">
+    <meta property="og:image" content="assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://bniladridas.github.io/gemini-tts-cli/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BREVOX DIGITAL CAST">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BREVOX DIGITAL CAST - Technical Blog">
+    <meta name="twitter:description" content="Deep-dive insights for engineers and educators. Professional technical content covering git standards, development practices, and software engineering.">
+    <meta name="twitter:image" content="assets/og.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f3f0;
+            min-height: 100vh;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 80px;
+            color: #2c2c2c;
+            padding-top: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 4rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            font-weight: 400;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+
+        .back-btn {
+            background: rgba(44, 44, 44, 0.05);
+            border: 1px solid rgba(44, 44, 44, 0.1);
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: #2c2c2c;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .back-btn:hover {
+            background: rgba(44, 44, 44, 0.1);
+            transform: translateX(-3px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+
+        .blog-card {
+            background: transparent;
+            padding: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover .blog-title {
+            color: #8b7355;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 300px;
+            background: #e8e4df;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .blog-meta {
+            margin-bottom: 15px;
+        }
+
+        .blog-date {
+            font-weight: 400;
+            color: #8b7355;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-audience {
+            font-size: 0.85rem;
+            color: #999;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .read-more {
+            color: #8b7355;
+            font-weight: 400;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .read-more:hover {
+            transform: translateX(3px);
+            color: #2c2c2c;
+        }
+
+        .blog-content-text {
+            max-width: 400px;
+        }
+
+        /* BREVOX Logo Component */
+        .brevox-logo {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-geometric {
+            width: 120px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            background: #2c2c2c;
+            border-radius: 4px;
+            padding: 8px;
+            position: relative;
+        }
+
+        .logo-text {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 1.2;
+        }
+
+        .logo-shapes {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 2px;
+            align-items: center;
+        }
+
+        .logo-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .logo-circle.black {
+            background: #2c2c2c;
+            border: 1px solid white;
+        }
+
+        .logo-rect {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* Human Touch Section */
+        .human-touch {
+            margin-top: 80px;
+            padding: 60px 40px;
+            background: rgba(139, 115, 85, 0.05);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .human-touch-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .human-touch h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #8b7355;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .human-touch p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .human-touch .signature {
+            font-style: italic;
+            color: #8b7355;
+            font-size: 0.9rem;
+            margin-top: 25px;
+            font-weight: 400;
+        }
+
+        .heart-icon {
+            color: #d4a574;
+            font-size: 1.1rem;
+            margin: 0 6px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .blog-card {
+                padding: 25px;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+            }
+
+            .back-nav {
+                top: 20px;
+                left: 20px;
+            }
+
+            .back-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BREVOX Logo -->
+    <div class="brevox-logo">
+        <img src="assets/brevox-logo.svg" alt="BREVOX DIGITAL CAST" width="120" height="40">
+    </div>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Our Blog</h1>
+            <p>Technical insights and deep-dive analysis for engineers, legal teams, and educators</p>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card" onclick="window.location.href='git-standards.html'">
+                <div class="blog-content-text">
+                    <div class="blog-meta">
+                        <span class="blog-date">May 2025</span>
+                        <span class="blog-audience">Technical Analysis</span>
+                    </div>
+
+                    <h2 class="blog-title">Git Standards Implementation</h2>
+
+                    <p class="blog-excerpt">
+                        A comprehensive technical brief outlining the systematic approach used to standardize git commit history for professional development standards.
+                    </p>
+
+                    <a href="git-standards.html" class="read-more">
+                        Read Article
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.42-1.41L16.17 13H4v-2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-image"></div>
+        </div>
+
+        <!-- Human Touch Section -->
+        <div class="human-touch">
+            <div class="human-touch-content">
+                <h3>Technology with Heart</h3>
+
+                <p>In our pursuit of technical excellence, we never forget the human element<span class="heart-icon">♡</span>the real people behind every line of code, every commit, every solution.</p>
+
+                <p>Our blog exists not just to share knowledge, but to create connections, inspire growth, and remind us all that technology is most powerful when it serves humanity with compassion and care.</p>
+
+                <div class="signature">
+                    Building bridges through code,<br>
+                    <span class="heart-icon">♡</span> BREVOX Digital Cast
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
