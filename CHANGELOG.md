@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/bniladridas/tts/compare/v1.1.2...v1.1.3) (2025-10-14)
+
+
+### Bug Fixes
+
+* correct steps indentation in ci job ([9091c20](https://github.com/bniladridas/tts/commit/9091c2071c88714d089c725c660825301f2e2dcc))
+
 ## [1.1.2](https://github.com/bniladridas/tts/compare/v1.1.1...v1.1.2) (2025-10-14)
 
 
