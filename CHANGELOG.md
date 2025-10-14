@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/bniladridas/tts/compare/v1.0.1...v1.0.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* update upload-artifact to v4 ([ec437c9](https://github.com/bniladridas/tts/commit/ec437c992d7d71292647489a173fc231048abea2))
+
 ## [1.0.1](https://github.com/bniladridas/tts/compare/v1.0.0...v1.0.1) (2025-10-14)
 
 
