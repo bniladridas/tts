@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/bniladridas/tts/compare/v1.1.0...v1.1.1) (2025-10-14)
+
+
+### Bug Fixes
+
+* correct YAML indentation and ignore YAML in prettier ([4a19f92](https://github.com/bniladridas/tts/commit/4a19f92bddecfe75e82d825802fef778e9f42fcf))
+* remove unnecessary artifact upload from e2e job ([daae418](https://github.com/bniladridas/tts/commit/daae4182a251f62e3a43a82577a47d8461fac0d2))
+
 # [1.1.0](https://github.com/bniladridas/tts/compare/v1.0.2...v1.1.0) (2025-10-14)
 
 
