@@ -13,8 +13,8 @@ if [[ "$first_line" =~ [A-Z] ]]; then
 fi
 
 # Check length
-if [ ${#first_line} -gt 60 ]; then
-    echo "Error: Commit message first line must be 60 characters or less."
+if [ ${#first_line} -gt 50 ]; then
+    echo "Error: Commit message first line must be 50 characters or less."
     exit 1
 fi
 
