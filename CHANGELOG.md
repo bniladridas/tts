@@ -1,3 +1,12 @@
+## [1.2.3](https://github.com/bniladridas/tts/compare/v1.2.2...v1.2.3) (2025-10-14)
+
+
+### Bug Fixes
+
+* add npm registry setup in release workflow ([05ca00f](https://github.com/bniladridas/tts/commit/05ca00f4daa10a8b33955c3a39c9bc298cd40cf4))
+* add shebang to bin file for proper execution ([6687176](https://github.com/bniladridas/tts/commit/6687176b7b8b6bcdcd01e30f5dde0d61bdaef970))
+* set NPM_TOKEN env in registry setup step ([1821ca3](https://github.com/bniladridas/tts/commit/1821ca3501e350b02345f236ddecbe7c371ccdaa))
+
 ## [1.2.2](https://github.com/bniladridas/tts/compare/v1.2.1...v1.2.2) (2025-10-14)
 
 
