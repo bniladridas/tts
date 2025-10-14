@@ -3,8 +3,6 @@
 Interactive command-line interface for generating lifelike speech using the Google Gemini API.
 Powered by the `gemini-2.5-flash-preview-tts` model.
 
----
-
 ## Project Structure
 
 ```
@@ -27,8 +25,6 @@ Powered by the `gemini-2.5-flash-preview-tts` model.
 └── .eslintrc.json
 ```
 
----
-
 ## Setup
 
 ```sh
@@ -42,15 +38,11 @@ Create `.env` in the root:
 GEMINI_API_KEY=your_google_genai_api_key_here
 ```
 
----
-
 ## Run
 
 ```sh
 npm run tts
 ```
-
----
 
 ## CLI Mode
 
@@ -66,8 +58,6 @@ Run a specific command:
 npm run cli
 ```
 
----
-
 ## API Server
 
 Start the development server:
@@ -82,8 +72,6 @@ Start the production server:
 npm start
 ```
 
----
-
 ## Available Scripts
 
 * `npm start` — production server
@@ -95,8 +83,6 @@ npm start
 * `npm run lint` — lint code
 * `npm run format` — format code
 
----
-
 ## Features
 
 * Type text interactively to synthesize speech
@@ -105,8 +91,6 @@ npm start
 * Output saved as `output_audio.wav`
 * Type `exit` to quit
 
----
-
 ## Test
 
 ```sh
@@ -114,8 +98,6 @@ npm run test
 ```
 
 Runs `test/api.test.ts`.
-
----
 
 ## Conventional Commits
 
