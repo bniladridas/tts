@@ -30,6 +30,10 @@ Powered by the `gemini-2.5-flash-preview-tts` model.
 ## Installation
 
 ```sh
+# Copy the example npmrc and set your GitHub PAT
+cp .npmrc.example .npmrc
+# Edit .npmrc and replace YOUR_GITHUB_PAT_HERE with your token
+
 npm install @bniladridas/tts
 ```
 
