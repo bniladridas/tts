@@ -1,3 +1,16 @@
+## [1.2.2](https://github.com/bniladridas/tts/compare/v1.2.1...v1.2.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* correct indentation for Run semantic release step ([36b649c](https://github.com/bniladridas/tts/commit/36b649c9ac543f885604a4abfe79fbf1af4527a3))
+* correct indentation in run block and step ([41cd5e0](https://github.com/bniladridas/tts/commit/41cd5e0b08750923244bffaff9cdc59e423c68bd))
+* quote main in branches for YAML validity ([2d9e11d](https://github.com/bniladridas/tts/commit/2d9e11d5561e8b1009f9d8fa68ee08b959358820))
+* quote main in branches list ([4a95830](https://github.com/bniladridas/tts/commit/4a95830ec5253be2bc4a14bf3ccb3d72ab84049f))
+* remove permissions to fix YAML syntax ([bc08fae](https://github.com/bniladridas/tts/commit/bc08fae7997638fb671aedfa501108799ee92f4b))
+* remove quotes from branches list ([a3f9d64](https://github.com/bniladridas/tts/commit/a3f9d640edcab8a53369f4cf272ed2b270da06ec))
+* use separate PACKAGE_TOKEN for GPR publishing ([4cbe62d](https://github.com/bniladridas/tts/commit/4cbe62dad8147edf0cdc20433168ffb8531669c3))
+
 ## [1.2.1](https://github.com/bniladridas/tts/compare/v1.2.0...v1.2.1) (2025-10-14)
 
 
