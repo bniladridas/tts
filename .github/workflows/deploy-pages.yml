@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+
       - name: Set base ref
         if: github.event_name == 'pull_request'
         run: |
@@ -34,7 +34,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           echo "BASE_REF=$(git rev-parse --abbrev-ref origin/HEAD | cut -d'/' -f2)" >> $GITHUB_ENV
-      
+
       - name: Run commit message checks
         run: |
           chmod +x scripts/commit-msg
@@ -59,8 +59,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -73,7 +73,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: "dist"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

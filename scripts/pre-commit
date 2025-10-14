@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Running pre-commit checks..."
+
+# Run format check (lint and typecheck are handled by CI)
+echo "Checking code format..."
+npm run format -- --check
+if [ $? -ne 0 ]; then
+  echo "Code format check failed. Please run 'npm run format' to fix."
+  exit 1
+fi
+
+echo "Format check passed!"
+exit 0

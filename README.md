@@ -12,13 +12,15 @@ Powered by the `gemini-2.5-flash-preview-tts` model.
 │   │   │   ├── interactive.ts
 │   │   │   └── advanced.ts
 │   │   └── index.ts
-│   ├── api/
-│   │   └── server.ts
-│   └── utils/
+│   └── api/
+│       └── server.ts
 ├── test/
-│   └── api.test.ts
+│   ├── unit.test.ts
+│   ├── e2e.test.ts
+│   └── cli-e2e.test.ts
 ├── docs/
 ├── scripts/
+│   └── main.ts
 ├── .gitignore
 ├── package.json
 ├── tsconfig.json
@@ -46,68 +48,65 @@ npm run tts
 
 ## CLI Mode
 
-Start the interactive CLI:
-
 ```sh
 npm run cli:interactive
-```
-
-Run a specific command:
-
-```sh
 npm run cli
 ```
 
 ## API Server
 
-Start the development server:
-
 ```sh
 npm run dev
-```
-
-Start the production server:
-
-```sh
 npm start
 ```
 
 ## Available Scripts
 
-* `npm start` — production server
-* `npm run dev` — development server with hot reload
-* `npm run cli` — run CLI interface
-* `npm run cli:interactive` — interactive CLI mode
-* `npm run cli:advanced` — advanced CLI commands
-* `npm test` — run tests
-* `npm run lint` — lint code
-* `npm run format` — format code
+- `npm start` — production server
+- `npm run dev` — development server
+- `npm run cli` — CLI interface
+- `npm run cli:interactive` — interactive CLI
+- `npm run cli:advanced` — advanced CLI
+- `npm test` — all tests
+- `npm run test:e2e` — e2e tests only
+- `npm run lint` — lint code
+- `npm run typecheck` — type check
+- `npm run format` — format code
+- `npm run build` — build TypeScript
 
 ## Features
 
-* Type text interactively to synthesize speech
-* Choose voice: `1` (Zephyr) or `2` (Puck)
-* Optional style: `"warm"`, `"calm"`, `"excited"`
-* Output saved as `output_audio.wav`
-* Type `exit` to quit
+- Type text interactively to synthesize speech
+- Choose voice: `1` (Zephyr) or `2` (Puck)
+- Optional style: `"warm"`, `"calm"`, `"excited"`
+- Output saved as `output_audio.wav`
+- Type `exit` to quit
 
-## Test
+## CI/CD
 
-```sh
-npm run test
-```
+GitHub Actions workflows:
 
-Runs `test/api.test.ts`.
+- `tts.yml`: Runs tests, linting, type checking, and build on push/PR to main/master.
+- `tts-release.yml`: Automates versioning, changelog, and GitHub releases on push to main using semantic-release.
+- `tts-security.yml`: Performs security code scanning with CodeQL on push/PR and weekly.
+
+## Releases
+
+This project uses [semantic-release](https://semantic-release.gitbook.io/) for automated versioning and releases. Commits must follow [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+- `feat:` for new features (minor version bump)
+- `fix:` for bug fixes (patch version bump)
+- `BREAKING CHANGE:` for breaking changes (major version bump)
+
+Releases are triggered on pushes to `main` branch.
 
 ## Conventional Commits
 
-* Commit messages start with lowercase type: `feat:`, `fix:`, `chore:`
-* Entire message lowercase
-* First line ≤ 60 characters
+- Commit messages start with lowercase type: `feat:`, `fix:`, `chore:`
+- Entire message lowercase
+- First line ≤ 60 characters
 
-Optional local hook:
+Husky manages Git hooks automatically. Hooks are set up in `.husky/`:
 
-```sh
-cp scripts/commit-msg .git/hooks/
-chmod +x .git/hooks/commit-msg
-```
+- `pre-commit`: Checks code formatting.
+- `commit-msg`: Validates commit message format (lowercase, <=60 chars, starts with type:).

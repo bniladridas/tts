@@ -1,68 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tts CLI</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root {
-  --background: #1E1E1E; /* Dark gray background */
-  --text: #E0E0E0;       /* Light gray text */
-  --highlight: #E0E0E0;  /* Light gray for code and buttons */
-}
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Inter',sans-serif; color:var(--text); background:var(--background);}
-.container {max-width:1200px; margin:0 auto; padding:0 1.5rem;}
-header {background:var(--background); width:100%; top:0; position:fixed; padding:1rem 0;}
-.header-content {display:flex; align-items:center;}
-.logo {font-weight:700; font-size:1.5rem; color:var(--highlight); text-decoration:none; display:flex; align-items:center;}
-.hero {background:var(--background); color:var(--text); padding:10rem 0 8rem; text-align:center; min-height:100vh; display:flex; flex-direction:column; justify-content:center;}
-.hero h1 {font-size:3rem; font-weight:800; margin-bottom:1rem;}
-.hero p {font-size:1.25rem; max-width:700px; margin:0 auto 2rem; opacity:0.9;}
-.cta-button {background:var(--highlight); color:var(--background); padding:0.875rem 2rem; border-radius:0.5rem; font-weight:600; text-decoration:none; font-size:1.1rem;}
-.cta-button:hover {opacity:0.8;}
-.code-block {background:var(--background); border:1px solid var(--highlight); color:var(--highlight); border-radius:0.5rem; padding:1.5rem; font-family:'Fira Code', monospace; max-width:600px; margin:2rem auto; text-align:left;}
-.code-block code {display:block; white-space:pre;}
-.code-block .comment {color:var(--highlight);}
-.code-block .command {color:var(--highlight);}
-footer {background:var(--background); color:var(--highlight); padding:2rem 0; text-align:center;}
-</style>
-</head>
-<body>
-<header>
-  <div class="container">
-    <div class="header-content">
-      <a href="/" class="logo">tts</a>
-    </div>
-  </div>
-</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tts CLI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --background: #1e1e1e; /* Dark gray background */
+        --text: #e0e0e0; /* Light gray text */
+        --highlight: #e0e0e0; /* Light gray for code and buttons */
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background: var(--background);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      header {
+        background: var(--background);
+        width: 100%;
+        top: 0;
+        position: fixed;
+        padding: 1rem 0;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--highlight);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      .hero {
+        background: var(--background);
+        color: var(--text);
+        padding: 10rem 0 8rem;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        opacity: 0.9;
+      }
+      .cta-button {
+        background: var(--highlight);
+        color: var(--background);
+        padding: 0.875rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.1rem;
+      }
+      .cta-button:hover {
+        opacity: 0.8;
+      }
+      .code-block {
+        background: var(--background);
+        border: 1px solid var(--highlight);
+        color: var(--highlight);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        font-family: "Fira Code", monospace;
+        max-width: 600px;
+        margin: 2rem auto;
+        text-align: left;
+      }
+      .code-block code {
+        display: block;
+        white-space: pre;
+      }
+      .code-block .comment {
+        color: var(--highlight);
+      }
+      .code-block .command {
+        color: var(--highlight);
+      }
+      footer {
+        background: var(--background);
+        color: var(--highlight);
+        padding: 2rem 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo">tts</a>
+        </div>
+      </div>
+    </header>
 
-<section class="hero">
-  <div class="container">
-    <h1>tts CLI</h1>
-    <p>Convert text to speech from your command line using Google Gemini.</p>
-    <a href="#get-started" class="cta-button">Get Started</a>
-    
-    <div id="get-started" class="code-block">
-      <code>
-<span class="comment"># Install the package</span>
-<span class="command">npm install -g tts</span>
+    <section class="hero">
+      <div class="container">
+        <h1>tts CLI</h1>
+        <p>
+          Convert text to speech from your command line using Google Gemini.
+        </p>
+        <a href="#get-started" class="cta-button">Get Started</a>
 
-<span class="comment"># Set your Google API key</span>
-<span class="command">export GOOGLE_API_KEY='your-api-key-here'</span>
+        <div id="get-started" class="code-block">
+          <code>
+            <span class="comment"># Install the package</span>
+            <span class="command">npm install -g tts</span>
 
-<span class="comment"># Convert text to speech</span>
-<span class="command">tts "Hello, this is a test."</span>
-      </code>
-    </div>
-  </div>
-</section>
+            <span class="comment"># Set your Google API key</span>
+            <span class="command"
+              >export GOOGLE_API_KEY='your-api-key-here'</span
+            >
 
-<footer>
-  <div class="container">
-    <p>© 2025 tts. Open source project.</p>
-  </div>
-</footer>
-</body>
+            <span class="comment"># Convert text to speech</span>
+            <span class="command">tts "Hello, this is a test."</span>
+          </code>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 tts. Open source project.</p>
+      </div>
+    </footer>
+  </body>
 </html>

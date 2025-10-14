@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Conventional commit hook: enforce lowercase, <=60 chars, starts with type:
+
+commit_msg_file=$1
+
+first_line=$(head -n1 "$commit_msg_file")
+
+# Check lowercase
+if [[ "$first_line" =~ [A-Z] ]]; then
+    echo "Error: Commit message first line must be lowercase."
+    exit 1
+fi
+
+# Check length
+if [ ${#first_line} -gt 60 ]; then
+    echo "Error: Commit message first line must be 60 characters or less."
+    exit 1
+fi
+
+# Check starts with type:
+if [[ ! "$first_line" =~ ^[a-z]+: ]]; then
+    echo "Error: Commit message must start with a type like 'feat:', 'fix:', etc."
+    exit 1
+fi
+
+exit 0

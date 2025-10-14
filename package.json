@@ -11,9 +11,12 @@
     "cli:interactive": "tsx src/cli/commands/interactive.ts",
     "cli:advanced": "tsx src/cli/commands/advanced.ts",
     "test": "vitest",
+    "test:e2e": "vitest --run e2e",
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "bin": {
     "gemini-tts": "./dist/cli/index.js"
@@ -27,6 +30,13 @@
     "mime": "^3.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.6",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.0",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -34,7 +44,9 @@
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^9.1.7",
     "prettier": "^3.0.0",
+    "semantic-release": "^24.2.9",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.4",
     "typescript": "^5.0.0",
@@ -42,5 +54,18 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
   }
 }
