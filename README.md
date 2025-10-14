@@ -1,56 +1,90 @@
-# Google Gemini TTS CLI
+# Google Gemini tts CLI
 
-Interactive CLI for synthesizing speech using the Gemini API.
+An interactive command-line interface for generating lifelike speech using the **Google Gemini API**.
 
-> This CLI uses the gemini-2.5-flash-preview-tts model from Google Gemini for all speech synthesis.
+> Powered by the `gemini-2.5-flash-preview-tts` model for high-quality, low-latency text-to-speech synthesis.
 
-## Setup
+---
+
+## 📦 Project Structure
+
+```
+├── src/
+│   ├── cli/
+│   │   ├── commands/
+│   │   │   ├── interactive.ts    # Basic interactive CLI
+│   │   │   └── advanced.ts       # Full-featured CLI with options
+│   │   └── index.ts              # CLI entry point
+│   ├── api/
+│   │   └── server.ts             # Simple TTS API server
+│   └── utils/                    # Utility functions (future use)
+├── test/
+│   └── api.test.ts               # API and CLI test suite
+├── docs/                         # Documentation and guides
+├── scripts/                      # Project scripts and hooks
+├── .gitignore                    # Ignored files
+├── package.json                  # Scripts, dependencies, metadata
+├── tsconfig.json                 # TypeScript configuration
+└── .eslintrc.json                # ESLint rules
+```
+
+---
+
+## ⚙️ Setup
 
 ```sh
 npm install @google/genai mime chalk dotenv
 npm install -D @types/node tsx
-````
+```
 
-Create a `.env` file:
+Create a `.env` file in the root directory:
 
 ```env
 GEMINI_API_KEY=your_google_genai_api_key_here
 ```
 
-## Run
+---
+
+## ▶️ Run the CLI
 
 ```sh
 npm run tts
 ```
 
-## Features
+### Features
 
-* Type text to synthesize
-* Choose speaker: `1` (Zephyr) or `2` (Puck)
-* Optional style (e.g. "Warm", "Calm", "Excited")
-* Output saved as `output_audio.wav`
-* Type `exit` to quit
+* Type text interactively to synthesize speech
+* Choose voice: `1` (**Zephyr**) or `2` (**Puck**)
+* Add style modifiers like `"warm"`, `"calm"`, or `"excited"`
+* Output audio automatically saved as `output_audio.wav`
+* Type `exit` anytime to quit
 
-## Other Scripts
+---
 
-* `test_api.ts`: One-off test
-* `interactive_tts.ts`: Basic CLI
-* `tts_advanced_cli.ts`: Full-featured CLI
+## 🧪 Test the API
 
-## Conventional Commits
+```sh
+npm run test
+```
 
-This project enforces conventional commit standards via CI on pull requests.
+Runs the basic TTS test defined in `test/api.test.ts`.
 
-### Usage
+---
 
-Commit messages must:
-- Start with a type like `feat:`, `fix:`, etc.
-- Be entirely lowercase
-- First line ≤60 characters
+## 💬 Conventional Commits
 
-### Local Setup (Optional)
+This project follows the **Conventional Commits** standard.
+All pull requests are validated through CI.
 
-To enable the commit-msg hook locally:
+### Rules
+
+* Start with a lowercase type: `feat:`, `fix:`, `chore:`, etc.
+* Entire message should be lowercase
+* First line ≤ 60 characters
+
+### Optional Local Setup
+
+To enable the `commit-msg` hook locally:
 
 ```sh
 cp scripts/commit-msg .git/hooks/

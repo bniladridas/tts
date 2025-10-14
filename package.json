@@ -2,11 +2,21 @@
   "name": "tts",
   "version": "1.0.0",
   "description": "Google Gemini TTS API test script",
-  "main": "test_api.ts",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "npx ts-node test_api.ts",
-    "tts": "tsx gemini-tts-cli.ts"
+    "start": "tsx src/api/server.ts",
+    "dev": "tsx watch src/api/server.ts",
+    "cli": "tsx src/cli/index.ts",
+    "cli:interactive": "tsx src/cli/commands/interactive.ts",
+    "cli:advanced": "tsx src/cli/commands/advanced.ts",
+    "test": "vitest",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
+  },
+  "bin": {
+    "gemini-tts": "./dist/cli/index.js"
   },
   "dependencies": {
     "@google/genai": "^0.6.1",
@@ -17,8 +27,20 @@
     "mime": "^3.0.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
     "ts-node": "^10.9.2",
-    "tsx": "^4.19.4"
+    "tsx": "^4.19.4",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
