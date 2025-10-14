@@ -1,11 +1,10 @@
 ## [1.2.4](https://github.com/bniladridas/tts/compare/v1.2.3...v1.2.4) (2025-10-14)
 
-
 ### Bug Fixes
 
-* correct gemini tts api integration ([b8e69a3](https://github.com/bniladridas/tts/commit/b8e69a341b22ed3eb682f96b3d31b814e0e1f9e1))
-* remove self-dependency from package-lock.json ([85009c3](https://github.com/bniladridas/tts/commit/85009c360da18da71872aa481a8560712ffe6fbe))
-* resolve package-lock.json conflict ([3fec680](https://github.com/bniladridas/tts/commit/3fec6806bbb089cd303c06e3c4e93e92919f979d))
+- correct gemini tts api integration ([b8e69a3](https://github.com/bniladridas/tts/commit/b8e69a341b22ed3eb682f96b3d31b814e0e1f9e1))
+- remove self-dependency from package-lock.json ([85009c3](https://github.com/bniladridas/tts/commit/85009c360da18da71872aa481a8560712ffe6fbe))
+- resolve package-lock.json conflict ([3fec680](https://github.com/bniladridas/tts/commit/3fec6806bbb089cd303c06e3c4e93e92919f979d))
 
 ## [1.2.3](https://github.com/bniladridas/tts/compare/v1.2.2...v1.2.3) (2025-10-14)
 

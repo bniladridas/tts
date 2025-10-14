@@ -109,7 +109,7 @@ async function synthesize({
   const model = genAI.models;
 
   const config = {
-    responseModalities: ["text", "audio"],
+    responseModalities: ["audio"],
     speechConfig: {
       voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } },
     },
