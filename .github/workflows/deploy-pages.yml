@@ -19,17 +19,27 @@ concurrency:
 jobs:
   commit-check:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
-      - run: git fetch origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
-      - run: |
+      
+      - name: Set base ref
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "BASE_REF=${{ github.base_ref }}" >> $GITHUB_ENV
+      - name: Set base ref for push
+        if: github.event_name == 'push'
+        run: |
+          echo "BASE_REF=$(git rev-parse --abbrev-ref origin/HEAD | cut -d'/' -f2)" >> $GITHUB_ENV
+      
+      - name: Run commit message checks
+        run: |
           chmod +x scripts/commit-msg
-          for commit in $(git rev-list origin/${{ github.base_ref }}..HEAD); do
+          git fetch origin ${{ env.BASE_REF }}
+          for commit in $(git rev-list origin/${{ env.BASE_REF }}..HEAD); do
             if [ $(git show --no-patch --format=%P $commit | wc -w) -gt 1 ]; then continue; fi
             git show --no-patch --format=%B $commit > /tmp/commit_msg
             bash scripts/commit-msg /tmp/commit_msg || exit 1
