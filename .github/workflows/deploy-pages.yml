@@ -37,21 +37,37 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: commit-check
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - uses: actions/configure-pages@v4
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: |
+          mkdir -p dist
+          cp -r docs/* dist/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          static_site_generator: none
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
-      - id: deployment
+          path: 'dist'
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: tts
