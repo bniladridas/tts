@@ -65,18 +65,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run e2e tests
-        run: npm run test:e2e
-        env:
-          NODE_ENV: test
-          # database_url: postgres://user:pass@localhost:5432/testdb
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-test-results
-          path: |
-            test-results/
-            coverage/
-          retention-days: 5
+       - name: Run e2e tests
+         run: npm run test:e2e
+         env:
+           NODE_ENV: test
+           # database_url: postgres://user:pass@localhost:5432/testdb
