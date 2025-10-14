@@ -20,6 +20,7 @@
     "test": "vitest",
     "test:e2e": "vitest --run e2e",
     "build": "tsc",
+    "postbuild": "echo '#!/usr/bin/env node' | cat - dist/cli/index.js > temp && mv temp dist/cli/index.js && chmod +x dist/cli/index.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
@@ -30,6 +31,7 @@
     "gemini-tts": "./dist/cli/index.js"
   },
   "dependencies": {
+    "@bniladridas/tts": "^1.2.2",
     "@google/genai": "^0.6.1",
     "chalk": "^5.4.1",
     "cors": "^2.8.5",
