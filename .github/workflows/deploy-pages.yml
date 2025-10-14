@@ -17,6 +17,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  commit-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Check conventional commits
+      run: |
+        for commit in $(git rev-list HEAD~${{ github.event.pull_request.commits }}..HEAD); do
+          git show --no-patch --format=%B $commit > /tmp/commit_msg
+          bash scripts/commit-msg /tmp/commit_msg || exit 1
+        done
+
   deploy:
     environment:
       name: github-pages
