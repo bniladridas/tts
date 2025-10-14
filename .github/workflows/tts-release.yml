@@ -2,7 +2,7 @@ name: tts-release
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
 
 jobs:
   release:
