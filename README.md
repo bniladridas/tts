@@ -36,3 +36,34 @@ npm run tts
 * `test_api.ts`: One-off test
 * `interactive_tts.ts`: Basic CLI
 * `tts_advanced_cli.ts`: Full-featured CLI
+
+## Conventional Commits
+
+This project enforces conventional commit standards.
+
+### Setup
+
+To enable the commit-msg hook:
+
+```sh
+cp scripts/commit-msg .git/hooks/
+chmod +x .git/hooks/commit-msg
+```
+
+### Usage
+
+Commit messages must:
+- Start with a type like `feat:`, `fix:`, etc.
+- Be entirely lowercase
+- First line ≤60 characters
+
+### History Cleanup
+
+The `scripts/rewrite_msg.sh` script was used to clean up existing commit messages (lowercase + truncate).
+
+To apply to your repo:
+
+```sh
+git filter-branch --msg-filter 'bash scripts/rewrite_msg.sh' -- --all
+git push origin main --force
+```
