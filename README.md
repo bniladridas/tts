@@ -104,9 +104,9 @@ Releases are triggered on pushes to `main` branch.
 
 - Commit messages start with lowercase type: `feat:`, `fix:`, `chore:`
 - Entire message lowercase
-- First line ≤ 60 characters
+- First line ≤ 50 characters
 
 Husky manages Git hooks automatically. Hooks are set up in `.husky/`:
 
 - `pre-commit`: Checks code formatting.
-- `commit-msg`: Validates commit message format (lowercase, <=60 chars, starts with type:).
+- `commit-msg`: Validates commit message format (lowercase, <=50 chars, starts with type:).
