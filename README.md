@@ -98,7 +98,7 @@ This project uses [semantic-release](https://semantic-release.gitbook.io/) for a
 - `fix:` for bug fixes (patch version bump)
 - `BREAKING CHANGE:` for breaking changes (major version bump)
 
-Releases are triggered on pushes to `main` branch.
+Releases are triggered on pushes to `main` branch. The latest release is automatically published to GitHub with generated changelogs.
 
 ## Conventional Commits
 
