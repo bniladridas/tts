@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/bniladridas/tts/compare/v1.2.0...v1.2.1) (2025-10-14)
+
+
+### Bug Fixes
+
+* set main to dist/cli/index.js and add files to exclude src from package ([d048279](https://github.com/bniladridas/tts/commit/d0482797fa92e7131c40bb4d144976a65bfa9e0a))
+
 # [1.2.0](https://github.com/bniladridas/tts/compare/v1.1.4...v1.2.0) (2025-10-14)
 
 
