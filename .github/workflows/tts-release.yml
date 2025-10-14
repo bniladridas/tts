@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Setup npm registry
+        run: |
+          echo "@bniladridas:registry=https://npm.pkg.github.com/" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc
+
       - name: Configure git
         run: |
           git config user.name "harper-release-bot"
