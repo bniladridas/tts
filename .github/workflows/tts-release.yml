@@ -33,8 +33,9 @@ jobs:
           git config user.name "harper-release-bot"
           git config user.email "237646224+harper-release-bot@users.noreply.github.com"
 
-      - name: Run semantic release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.HARPER_RELEASE_BOT_TOKEN }}
-          GH_TOKEN: ${{ secrets.HARPER_RELEASE_BOT_TOKEN }}
+       - name: Run semantic release
+         run: npx semantic-release
+         env:
+           GITHUB_TOKEN: ${{ secrets.HARPER_RELEASE_BOT_TOKEN }}
+           GH_TOKEN: ${{ secrets.HARPER_RELEASE_BOT_TOKEN }}
+           NPM_TOKEN: ${{ secrets.HARPER_RELEASE_BOT_TOKEN }}
