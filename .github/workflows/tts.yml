@@ -53,12 +53,6 @@ jobs:
 
   e2e:
     runs-on: ubuntu-latest
-    services:
-      # Add services here if needed
-      # redis:
-      #   image: redis
-      #   ports:
-      #     - 6379:6379
     steps:
       - uses: actions/checkout@v4
 
