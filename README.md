@@ -27,7 +27,13 @@ Powered by the `gemini-2.5-flash-preview-tts` model.
 └── .eslintrc.json
 ```
 
-## Setup
+## Installation
+
+```sh
+npm install @bniladridas/tts
+```
+
+## Development Setup
 
 ```sh
 npm install @google/genai mime chalk dotenv
