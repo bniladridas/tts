@@ -1,9 +1,13 @@
 {
-  "name": "tts",
+  "name": "@bniladridas/tts",
   "version": "1.0.0",
   "description": "Google Gemini TTS API test script",
   "main": "dist/index.js",
   "type": "module",
+  "repository": "https://github.com/bniladridas/tts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "start": "tsx src/api/server.ts",
     "dev": "tsx watch src/api/server.ts",
@@ -16,7 +20,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
     "gemini-tts": "./dist/cli/index.js"
@@ -34,6 +39,7 @@
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^11.0.6",
+    "@semantic-release/npm": "^12.0.2",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.0",
@@ -62,6 +68,7 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
+      "@semantic-release/npm",
       "@semantic-release/git",
       "@semantic-release/github"
     ]
