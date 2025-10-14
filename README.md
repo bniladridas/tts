@@ -39,16 +39,7 @@ npm run tts
 
 ## Conventional Commits
 
-This project enforces conventional commit standards.
-
-### Setup
-
-To enable the commit-msg hook:
-
-```sh
-cp scripts/commit-msg .git/hooks/
-chmod +x .git/hooks/commit-msg
-```
+This project enforces conventional commit standards via CI on pull requests.
 
 ### Usage
 
@@ -57,13 +48,11 @@ Commit messages must:
 - Be entirely lowercase
 - First line ≤60 characters
 
-### History Cleanup
+### Local Setup (Optional)
 
-The `scripts/rewrite_msg.sh` script was used to clean up existing commit messages (lowercase + truncate).
-
-To apply to your repo:
+To enable the commit-msg hook locally:
 
 ```sh
-git filter-branch --msg-filter 'bash scripts/rewrite_msg.sh' -- --all
-git push origin main --force
+cp scripts/commit-msg .git/hooks/
+chmod +x .git/hooks/commit-msg
 ```
