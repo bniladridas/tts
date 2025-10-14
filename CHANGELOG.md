@@ -1,3 +1,11 @@
+## [1.2.5](https://github.com/bniladridas/tts/compare/v1.2.4...v1.2.5) (2025-10-14)
+
+
+### Bug Fixes
+
+* remove self-dependency from package.json ([34cff49](https://github.com/bniladridas/tts/commit/34cff49d4c345556d6106d886ab79664a6709674))
+* remove text modality from gemini tts api ([08766b9](https://github.com/bniladridas/tts/commit/08766b906d06ba82ee0c798fb5e18b52c43f27d2))
+
 ## [1.2.4](https://github.com/bniladridas/tts/compare/v1.2.3...v1.2.4) (2025-10-14)
 
 ### Bug Fixes
