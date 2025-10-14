@@ -81,12 +81,10 @@ function createWavHeader(
 async function synthesize({
   text,
   speaker,
-  style,
   fileName = "output_audio",
 }: {
   text: string;
   speaker: string;
-  style?: string;
   fileName?: string;
 }) {
   if (!process.env.GEMINI_API_KEY) {
@@ -94,52 +92,49 @@ async function synthesize({
     process.exit(1);
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-  const prompt = `${style?.trim() ? style.trim() + "\n" : ""}${speaker}: ${text}`;
+  const voices = {
+    "1": "Zephyr",
+    "2": "Puck",
+  };
+
+  const voice = voices[speaker as keyof typeof voices];
+
+  if (!voice) {
+    console.error(chalk.red("Invalid speaker."));
+    process.exit(1);
+  }
+
+  const model = genAI.models;
 
   const config = {
-    temperature: 1,
-    responseModalities: ["audio"],
-    multiSpeakerVoiceConfig: {
-      speakerVoiceConfigs: [
-        {
-          speaker: "Speaker 1",
-          voiceConfig: { prebuiltVoiceConfig: { voiceName: "Zephyr" } },
-        },
-        {
-          speaker: "Speaker 2",
-          voiceConfig: { prebuiltVoiceConfig: { voiceName: "Puck" } },
-        },
-      ],
+    responseModalities: ["text", "audio"],
+    speechConfig: {
+      voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } },
     },
   };
 
   try {
-    const response = await ai.models.generateContentStream({
-      model: "gemini-1.5-flash",
+    const response = await model.generateContent({
+      model: "models/gemini-2.5-flash-preview-tts",
+      contents: text,
       config,
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
 
-    let fileSaved = false;
-
-    for await (const chunk of response) {
-      const part = chunk.candidates?.[0].content?.parts?.[0];
-      if (part?.inlineData) {
-        const { mimeType, data } = part.inlineData;
-        // @ts-expect-error mime types issue
-        const extension = mime.getExtension(mimeType || "") || "wav";
-        let buffer = Buffer.from(data || "", "base64");
-        if (!mimeType?.includes("wav")) {
-          buffer = convertToWav(data || "", mimeType || "");
-        }
-        saveBinaryFile(`${fileName}.${extension}`, buffer);
-        fileSaved = true;
+    const part = response.candidates?.[0].content?.parts?.[0];
+    if (part?.inlineData) {
+      const { mimeType, data } = part.inlineData;
+      // @ts-expect-error mime types issue
+      const extension = mime.getExtension(mimeType || "") || "wav";
+      let buffer = Buffer.from(data || "", "base64");
+      if (!mimeType?.includes("wav")) {
+        buffer = convertToWav(data || "", mimeType || "");
       }
+      saveBinaryFile(`${fileName}.${extension}`, buffer);
+    } else {
+      console.log(chalk.red("No audio data received."));
     }
-
-    if (!fileSaved) console.log(chalk.red("No audio data received."));
   } catch (err) {
     console.error(chalk.red("API error:"), err);
   }
@@ -152,7 +147,7 @@ function promptAndSynthesize() {
   });
 
   console.log(chalk.bold("\nGemini TTS CLI\n"));
-  console.log("Enter text, choose speaker, add optional style.\n");
+  console.log("Enter text, choose speaker.\n");
 
   function ask() {
     rl.question("Text: ", async (text) => {
@@ -161,15 +156,9 @@ function promptAndSynthesize() {
       rl.question("Speaker (1=Zephyr, 2=Puck): ", async (speakerInput) => {
         if (speakerInput.trim().toLowerCase() === "exit") return rl.close();
 
-        const speaker = speakerInput.trim() === "2" ? "Speaker 2" : "Speaker 1";
-
-        rl.question("Style (optional): ", async (style) => {
-          if (style.trim().toLowerCase() === "exit") return rl.close();
-
-          console.log(chalk.gray("Generating..."));
-          await synthesize({ text, speaker, style });
-          ask();
-        });
+        console.log(chalk.gray("Generating..."));
+        await synthesize({ text, speaker: speakerInput.trim() });
+        ask();
       });
     });
   }

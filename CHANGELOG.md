@@ -9,66 +9,58 @@
 
 ## [1.2.2](https://github.com/bniladridas/tts/compare/v1.2.1...v1.2.2) (2025-10-14)
 
-
 ### Bug Fixes
 
-* correct indentation for Run semantic release step ([36b649c](https://github.com/bniladridas/tts/commit/36b649c9ac543f885604a4abfe79fbf1af4527a3))
-* correct indentation in run block and step ([41cd5e0](https://github.com/bniladridas/tts/commit/41cd5e0b08750923244bffaff9cdc59e423c68bd))
-* quote main in branches for YAML validity ([2d9e11d](https://github.com/bniladridas/tts/commit/2d9e11d5561e8b1009f9d8fa68ee08b959358820))
-* quote main in branches list ([4a95830](https://github.com/bniladridas/tts/commit/4a95830ec5253be2bc4a14bf3ccb3d72ab84049f))
-* remove permissions to fix YAML syntax ([bc08fae](https://github.com/bniladridas/tts/commit/bc08fae7997638fb671aedfa501108799ee92f4b))
-* remove quotes from branches list ([a3f9d64](https://github.com/bniladridas/tts/commit/a3f9d640edcab8a53369f4cf272ed2b270da06ec))
-* use separate PACKAGE_TOKEN for GPR publishing ([4cbe62d](https://github.com/bniladridas/tts/commit/4cbe62dad8147edf0cdc20433168ffb8531669c3))
+- correct indentation for Run semantic release step ([36b649c](https://github.com/bniladridas/tts/commit/36b649c9ac543f885604a4abfe79fbf1af4527a3))
+- correct indentation in run block and step ([41cd5e0](https://github.com/bniladridas/tts/commit/41cd5e0b08750923244bffaff9cdc59e423c68bd))
+- quote main in branches for YAML validity ([2d9e11d](https://github.com/bniladridas/tts/commit/2d9e11d5561e8b1009f9d8fa68ee08b959358820))
+- quote main in branches list ([4a95830](https://github.com/bniladridas/tts/commit/4a95830ec5253be2bc4a14bf3ccb3d72ab84049f))
+- remove permissions to fix YAML syntax ([bc08fae](https://github.com/bniladridas/tts/commit/bc08fae7997638fb671aedfa501108799ee92f4b))
+- remove quotes from branches list ([a3f9d64](https://github.com/bniladridas/tts/commit/a3f9d640edcab8a53369f4cf272ed2b270da06ec))
+- use separate PACKAGE_TOKEN for GPR publishing ([4cbe62d](https://github.com/bniladridas/tts/commit/4cbe62dad8147edf0cdc20433168ffb8531669c3))
 
 ## [1.2.1](https://github.com/bniladridas/tts/compare/v1.2.0...v1.2.1) (2025-10-14)
 
-
 ### Bug Fixes
 
-* set main to dist/cli/index.js and add files to exclude src from package ([d048279](https://github.com/bniladridas/tts/commit/d0482797fa92e7131c40bb4d144976a65bfa9e0a))
+- set main to dist/cli/index.js and add files to exclude src from package ([d048279](https://github.com/bniladridas/tts/commit/d0482797fa92e7131c40bb4d144976a65bfa9e0a))
 
 # [1.2.0](https://github.com/bniladridas/tts/compare/v1.1.4...v1.2.0) (2025-10-14)
 
-
 ### Bug Fixes
 
-* correct indentation in release workflow ([82f6671](https://github.com/bniladridas/tts/commit/82f6671216d26b6d11732bc7972b8af87350fd8c))
-* rewrite release workflow with correct YAML and checkout v4 ([4fc6f76](https://github.com/bniladridas/tts/commit/4fc6f762a519b66c6efcb6d28a1ec1311f534771))
-* set NPM_TOKEN for GPR publishing ([5e6d1ea](https://github.com/bniladridas/tts/commit/5e6d1eadc14185eeebbdbfc7ad784e4a62d172af))
-
+- correct indentation in release workflow ([82f6671](https://github.com/bniladridas/tts/commit/82f6671216d26b6d11732bc7972b8af87350fd8c))
+- rewrite release workflow with correct YAML and checkout v4 ([4fc6f76](https://github.com/bniladridas/tts/commit/4fc6f762a519b66c6efcb6d28a1ec1311f534771))
+- set NPM_TOKEN for GPR publishing ([5e6d1ea](https://github.com/bniladridas/tts/commit/5e6d1eadc14185eeebbdbfc7ad784e4a62d172af))
 
 ### Features
 
-* configure package for GitHub Package Registry publishing ([523941e](https://github.com/bniladridas/tts/commit/523941e232d3dfd6caa49a82858d506325fbde68))
+- configure package for GitHub Package Registry publishing ([523941e](https://github.com/bniladridas/tts/commit/523941e232d3dfd6caa49a82858d506325fbde68))
 
 ## [1.1.4](https://github.com/bniladridas/tts/compare/v1.1.3...v1.1.4) (2025-10-14)
 
-
 ### Bug Fixes
 
-* rewrite workflow with correct YAML indentation ([4c542ac](https://github.com/bniladridas/tts/commit/4c542ac61f6279bc3e8b3442bf549b04c4ccfcf6))
+- rewrite workflow with correct YAML indentation ([4c542ac](https://github.com/bniladridas/tts/commit/4c542ac61f6279bc3e8b3442bf549b04c4ccfcf6))
 
 ## [1.1.3](https://github.com/bniladridas/tts/compare/v1.1.2...v1.1.3) (2025-10-14)
 
-
 ### Bug Fixes
 
-* correct steps indentation in ci job ([9091c20](https://github.com/bniladridas/tts/commit/9091c2071c88714d089c725c660825301f2e2dcc))
+- correct steps indentation in ci job ([9091c20](https://github.com/bniladridas/tts/commit/9091c2071c88714d089c725c660825301f2e2dcc))
 
 ## [1.1.2](https://github.com/bniladridas/tts/compare/v1.1.1...v1.1.2) (2025-10-14)
 
-
 ### Bug Fixes
 
-* correct indentation in ci job steps ([d09810a](https://github.com/bniladridas/tts/commit/d09810a870b67961d0d3f9dbea42dbef660a7522))
+- correct indentation in ci job steps ([d09810a](https://github.com/bniladridas/tts/commit/d09810a870b67961d0d3f9dbea42dbef660a7522))
 
 ## [1.1.1](https://github.com/bniladridas/tts/compare/v1.1.0...v1.1.1) (2025-10-14)
 
-
 ### Bug Fixes
 
-* correct YAML indentation and ignore YAML in prettier ([4a19f92](https://github.com/bniladridas/tts/commit/4a19f92bddecfe75e82d825802fef778e9f42fcf))
-* remove unnecessary artifact upload from e2e job ([daae418](https://github.com/bniladridas/tts/commit/daae4182a251f62e3a43a82577a47d8461fac0d2))
+- correct YAML indentation and ignore YAML in prettier ([4a19f92](https://github.com/bniladridas/tts/commit/4a19f92bddecfe75e82d825802fef778e9f42fcf))
+- remove unnecessary artifact upload from e2e job ([daae418](https://github.com/bniladridas/tts/commit/daae4182a251f62e3a43a82577a47d8461fac0d2))
 
 # [1.1.0](https://github.com/bniladridas/tts/compare/v1.0.2...v1.1.0) (2025-10-14)
 
