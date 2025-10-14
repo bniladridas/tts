@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/bniladridas/tts/compare/v1.1.3...v1.1.4) (2025-10-14)
+
+
+### Bug Fixes
+
+* rewrite workflow with correct YAML indentation ([4c542ac](https://github.com/bniladridas/tts/commit/4c542ac61f6279bc3e8b3442bf549b04c4ccfcf6))
+
 ## [1.1.3](https://github.com/bniladridas/tts/compare/v1.1.2...v1.1.3) (2025-10-14)
 
 
