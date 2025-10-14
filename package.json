@@ -1,6 +1,6 @@
 {
   "name": "@bniladridas/tts",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Google Gemini TTS API test script",
   "main": "dist/index.js",
   "type": "module",

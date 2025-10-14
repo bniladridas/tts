@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/bniladridas/tts/compare/v1.1.4...v1.2.0) (2025-10-14)
+
+
+### Bug Fixes
+
+* correct indentation in release workflow ([82f6671](https://github.com/bniladridas/tts/commit/82f6671216d26b6d11732bc7972b8af87350fd8c))
+* rewrite release workflow with correct YAML and checkout v4 ([4fc6f76](https://github.com/bniladridas/tts/commit/4fc6f762a519b66c6efcb6d28a1ec1311f534771))
+* set NPM_TOKEN for GPR publishing ([5e6d1ea](https://github.com/bniladridas/tts/commit/5e6d1eadc14185eeebbdbfc7ad784e4a62d172af))
+
+
+### Features
+
+* configure package for GitHub Package Registry publishing ([523941e](https://github.com/bniladridas/tts/commit/523941e232d3dfd6caa49a82858d506325fbde68))
+
 ## [1.1.4](https://github.com/bniladridas/tts/compare/v1.1.3...v1.1.4) (2025-10-14)
 
 
