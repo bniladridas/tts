@@ -4,39 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>tts CLI</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #4F46E5;
-  --gray-700: #374151;
-  --gray-900: #111827;
+  --background: #1E1E1E; /* Dark gray background */
+  --text: #E0E0E0;       /* Light gray text */
+  --highlight: #E0E0E0;  /* Light gray for code and buttons */
 }
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Inter',sans-serif; color:var(--gray-700); background:#fff;}
+body {font-family:'Inter',sans-serif; color:var(--text); background:var(--background);}
 .container {max-width:1200px; margin:0 auto; padding:0 1.5rem;}
-header {background:white; box-shadow:0 1px 3px rgba(0,0,0,0.1); position:fixed; width:100%; top:0;}
-.header-content {display:flex; align-items:center; padding:1rem 0;}
-.logo {display:flex; align-items:center; font-weight:700; font-size:1.5rem; color:var(--gray-900); text-decoration:none;}
-.hero {background:linear-gradient(135deg,#4F46E5,#7C3AED); color:white; padding:10rem 0 8rem; text-align:center; min-height:100vh; display:flex; flex-direction:column; justify-content:center;}
+header {background:var(--background); width:100%; top:0; position:fixed; padding:1rem 0;}
+.header-content {display:flex; align-items:center;}
+.logo {font-weight:700; font-size:1.5rem; color:var(--highlight); text-decoration:none; display:flex; align-items:center;}
+.hero {background:var(--background); color:var(--text); padding:10rem 0 8rem; text-align:center; min-height:100vh; display:flex; flex-direction:column; justify-content:center;}
 .hero h1 {font-size:3rem; font-weight:800; margin-bottom:1rem;}
 .hero p {font-size:1.25rem; max-width:700px; margin:0 auto 2rem; opacity:0.9;}
-.cta-button {background:white; color:var(--primary); padding:0.875rem 2rem; border-radius:0.5rem; font-weight:600; text-decoration:none; font-size:1.1rem;}
-.cta-button:hover {transform:translateY(-2px);}
-.code-block {background:var(--gray-900); color:#E5E7EB; border-radius:0.5rem; padding:1.5rem; font-family:'Fira Code', monospace; max-width:600px; margin:2rem auto; text-align:left;}
+.cta-button {background:var(--highlight); color:var(--background); padding:0.875rem 2rem; border-radius:0.5rem; font-weight:600; text-decoration:none; font-size:1.1rem;}
+.cta-button:hover {opacity:0.8;}
+.code-block {background:var(--background); border:1px solid var(--highlight); color:var(--highlight); border-radius:0.5rem; padding:1.5rem; font-family:'Fira Code', monospace; max-width:600px; margin:2rem auto; text-align:left;}
 .code-block code {display:block; white-space:pre;}
-.code-block .comment {color:#9CA3AF;}
-.code-block .command {color:#60A5FA;}
-footer {background:var(--gray-900); color:white; padding:2rem 0; text-align:center;}
+.code-block .comment {color:var(--highlight);}
+.code-block .command {color:var(--highlight);}
+footer {background:var(--background); color:var(--highlight); padding:2rem 0; text-align:center;}
 </style>
 </head>
 <body>
 <header>
   <div class="container">
     <div class="header-content">
-      <a href="/" class="logo">
-        <i class="fas fa-robot" style="margin-right:0.5rem;color:var(--primary);"></i>tts
-      </a>
+      <a href="/" class="logo">tts</a>
     </div>
   </div>
 </header>
@@ -44,7 +41,7 @@ footer {background:var(--gray-900); color:white; padding:2rem 0; text-align:cent
 <section class="hero">
   <div class="container">
     <h1>tts CLI</h1>
-    <p>Convert text to natural-sounding speech from your command line using Google Gemini.</p>
+    <p>Convert text to speech from your command line using Google Gemini.</p>
     <a href="#get-started" class="cta-button">Get Started</a>
     
     <div id="get-started" class="code-block">
