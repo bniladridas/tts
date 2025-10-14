@@ -1,10 +1,10 @@
-name: Deploy to GitHub Pages
+name: tts
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -13,59 +13,45 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: tts
   cancel-in-progress: false
 
 jobs:
   commit-check:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
-        fetch-depth: 0
-    - name: Fetch base branch
-      run: git fetch origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
-    - name: Check conventional commits
-      run: |
-        chmod +x scripts/commit-msg
-        for commit in $(git rev-list origin/${{ github.base_ref }}..HEAD); do
-          if [ $(git show --no-patch --format=%P $commit | wc -w) -gt 1 ]; then continue; fi
-          echo "Checking $commit"
-          git show --no-patch --format=%B $commit | head -1
-          git show --no-patch --format=%B $commit > /tmp/commit_msg
-          bash scripts/commit-msg /tmp/commit_msg || exit 1
-        done
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - run: git fetch origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
+      - run: |
+          chmod +x scripts/commit-msg
+          for commit in $(git rev-list origin/${{ github.base_ref }}..HEAD); do
+            if [ $(git show --no-patch --format=%P $commit | wc -w) -gt 1 ]; then continue; fi
+            git show --no-patch --format=%B $commit > /tmp/commit_msg
+            bash scripts/commit-msg /tmp/commit_msg || exit 1
+          done
 
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-      with:
-        static_site_generator: none
-    
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: './docs'
-    
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-      with:
-        timeout: 600000
-        error_count: 10
-        reporting_interval: 5000
-        artifact_name: github-pages
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/configure-pages@v4
+        with:
+          static_site_generator: none
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: tts
